@@ -10796,3 +10796,11 @@ header.masthead .post-heading .meta a {
     font-size: 2.25rem;
   }
 }
+
+img {
+  filter: grayscale(100%);
+}
+
+img:hover{
+  filter: grayscale(0%);
+}
