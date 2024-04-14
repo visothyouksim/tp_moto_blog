@@ -7,10 +7,11 @@ use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AppFixtures extends Fixture
 {
-    public function __construct(private readonly UserPasswordHasherInterface $passwordHasher)
+    public function __construct(private readonly SluggerInterface $slugger,private readonly UserPasswordHasherInterface $passwordHasher)
     {
     }
 
@@ -66,10 +67,12 @@ class AppFixtures extends Fixture
         # Chargement des articles
 
         $currentDate = new \DateTimeImmutable();
+        $title = 'Essai comparatif Kawasaki ZX-4RR / ZX-6R';
+        $slug = $this->slugger->slug($title);
 
         $post = new Post();
-        $post->setTitle('Essai comparatif Kawasaki ZX-4RR / ZX-6R')
-            ->setSlug('essai-comparatif-kawasaki-zx-4rr-zx-6r')
+        $post->setTitle($title)
+            ->setSlug($slug)
             ->setImage('http://www.lerepairedesmotards.com/img/essais/kawasaki/zx-4r-6r/kawasaki-zx-4r-6r-4rr-comparo.jpg')
             ->setContent('Avec la ZX-4R et la ZX-6R, c’est le grand retour des hystériques des hauts régimes, des symphonies en turbine majeure. Kawasaki relance en effet sa fameuse ZX-6R et dévoile en même temps sa ZX-4RR, harpie de poche des circuits. Fan des screamers, vous pouvez de nouveau hurler de plaisir, avec le choix des armes et des pistardes. Essai...')
             ->setCreatedAt($currentDate)
