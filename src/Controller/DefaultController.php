@@ -12,8 +12,7 @@ class DefaultController extends AbstractController
     #[Route('/', name: 'default_home', methods: ['GET'])]
     public function home(PostRepository $postRepository): Response
     {
-        #1. Récupération des derniers articles
-        $posts = $postRepository->findAll();
+        $posts = $postRepository->findBy([], ['publishedAt' => 'DESC']);
 
         return $this->render('default/home.html.twig', [
             'posts' => $posts

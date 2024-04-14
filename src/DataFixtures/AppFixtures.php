@@ -75,7 +75,7 @@ class AppFixtures extends Fixture
             ->setCreatedAt($currentDate)
             ->setUpdatedAt($currentDate)
             ->setPublishedAt($currentDate)
-            ->setUser($reporter);
+            ->setUser($admin);
 
         $manager->persist($post);
 
@@ -99,7 +99,19 @@ class AppFixtures extends Fixture
             ->setCreatedAt($currentDate)
             ->setUpdatedAt($currentDate)
             ->setPublishedAt($currentDate)
-            ->setUser($reporter);
+            ->setUser($user);
+
+        $manager->persist($post);
+
+        $post = new Post();
+        $post->setTitle('Essai moto Kawasaki Ninja 7 Hybrid')
+            ->setSlug('essai-moto-kawasaki-ninja-7-hybrid')
+            ->setImage('http://www.lerepairedesmotards.com/img/essais/kawasaki/ninja-7-hybrid/essai-kawasaki-ninja-7-hybrid.jpg')
+            ->setContent('On se demandait qui oserait en premier sortir une motorisation hybride sur une moto ou un scooter. Quoi de plus naturel qu\'un motoriste de renom, doublé d\'un constructeur sachant innover, soit à la pointe d’une nouvelle technologie ? C\'est donc Kawasaki qui s\'y colle et tâte le terrain au travers de cette première mondiale. Un terrain connu dans le monde automobile, dont Kawasaki ne fait d’ailleurs pas partie contrairement à Honda ou à Suzuki, mais un terrain totalement vierge dans l\'univers du deux roues motorisé de série. Kawasaki, c\'est aussi une « marque ». La River Marque, en l’occurrence, arborée par les modèles d\'exception. Et cette nouvelle Ninja 7 Hybrid la porte. Quant à savoir ce qu\'elle apporte, ou devrait apporter, voyons ensemble. Essai, vidéo incluse...')
+            ->setCreatedAt($currentDate)
+            ->setUpdatedAt($currentDate)
+            ->setPublishedAt($currentDate)
+            ->setUser($user);
 
         $manager->persist($post);
 
