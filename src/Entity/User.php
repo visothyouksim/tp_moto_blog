@@ -48,6 +48,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct()
     {
         $this->posts = new ArrayCollection();
+        $this->roles = ['ROLE_USER'];
     }
 
     public function getId(): ?int
@@ -95,11 +96,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @param list<string> $roles
      */
     public function setRoles(array $roles): static
-    {
-        $this->roles = $roles;
-
-        return $this;
+{
+    if (!in_array('ROLE_USER', $roles)) {
+        $roles[] = 'ROLE_USER';
     }
+
+    $this->roles = $roles;
+
+    return $this;
+}
 
     /**
      * @see PasswordAuthenticatedUserInterface
