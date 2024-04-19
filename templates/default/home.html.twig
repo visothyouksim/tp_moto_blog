@@ -30,7 +30,7 @@
                             <img src="{{ post.image }}" alt="{{ post.title }}" class="img-fluid w-100 border rounded-3">
                         </a>
 
-                        <p class="content">{{ post.content }}</p>
+                        <p class="content">{{ post.content | raw }}</p>
                         <p class="post-meta">
                             Publié par
                             <a href="#">{{ post.user.firstName }} {{ post.user.lastName }}</a>
