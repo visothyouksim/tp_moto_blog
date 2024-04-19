@@ -37,7 +37,7 @@ class PostType extends AbstractType
             ->add('image', TextType::class, [
                 'label' => 'Image',
                 'attr' => [
-                    'placeholder' => '-- Saisissez l\'URL de votre image --',
+                    'placeholder' => '-- Saisissez l\'URL de votre image (Vérifiez que l\'URL commence par \'https\') --',
                     'class' => 'form-control mb-3'
                 ]
             ])
