@@ -36,7 +36,6 @@
                             <a href="#">{{ post.user.firstName }} {{ post.user.lastName }}</a>
                             le {{ post.publishedAt|date('d/m/Y') }}
                         <span> - {% for category in post.categories %} {{ category.name }} {% endfor %}</span>
-
                         </p>
                     </div>
                 {% endfor %}
