@@ -21,7 +21,7 @@ class PostType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Titre',
                 'attr' => [
-                    'placeholder' => '-- Saisissez votre titre --',
+                    'placeholder' => '-- Saisissez le titre de votre article --',
                     'class' => 'form-control mb-3'
                 ]
             ])
