@@ -12,11 +12,10 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-#[Route('/administration/article')]
 class PostController extends AbstractController
 {
-    #[Route('/creer-un-article.html', name: 'post_create')]
-    # ex. localhost:8000/administration/article/creer-un-article.html
+    #[Route('/creer-un-article', name: 'post_create')]
+    # ex. localhost:8000/creer-un-article
     public function create(Request $request,
                            SluggerInterface $slugger,
                            EntityManagerInterface $manager): Response
